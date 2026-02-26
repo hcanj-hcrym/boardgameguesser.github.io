@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoardGuesser</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入谷歌字体 -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+SC:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1>BoardGuesser</h1>
+            <p class="subtitle">根据提示猜桌游</p>
+            <div id="stats">
+                <span id="attempt-count">剩余机会: 8</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="search-container">
+                <div class="input-wrapper">
+                    <input type="text" id="game-input" autocomplete="off" placeholder="输入一款桌游名称...">
+                    <div id="suggestions" class="suggestions-list"></div>
+                </div>
+                <div class="button-container">
+                    <button id="submit-guess" disabled>猜测</button>
+                    <button id="restart-btn">重新开始</button>
+                    <button id="give-up-btn" class="secondary-btn">放弃</button>
+                </div>
+            </div>
+
+            <div class="results-container">
+                <table id="results-table">
+                    <thead>
+                        <tr>
+                            <th>游戏名称</th>
+                            <th>发行年份</th>
+                            <th>游戏分类</th>
+                            <th>游戏模式</th>
+                            <th>最低人数</th>
+                            <th>最高人数</th>
+                            <th>上手难度</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-body">
+                        <!-- 猜测结果将动态插入这里 -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <!-- 胜利/失败 弹窗 -->
+        <div id="overlay" class="hidden">
+            <div class="modal">
+                <h2 id="modal-title"></h2>
+                <div id="modal-content"></div>
+                <p id="target-game-info"></p>
+                <div class="modal-buttons">
+                    <button id="close-modal">确认</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 BoardGuessr 可是我觉得这真的很神圣啊</p>
+        </footer>
+    </div>
+
+    <!-- 脚本引入顺序：数据先于逻辑 -->
+    <script src="datanew.js"></script>
+    <script src="game.js"></script>
+</body>
+
+</html>
